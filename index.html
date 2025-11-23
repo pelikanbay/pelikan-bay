@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PelikanBay | AI-Powered Landing Page Templates</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variabile CSS moderne */
+        :root {
+            --primary: #25D366;
+            --primary-dark: #128C7E;
+            --secondary: #405DE6;
+            --accent: #FCAF45;
+            --dark: #121212;
+            --darker: #0A0A0A;
+            --light: #FFFFFF;
+            --gray: #8E8E8E;
+            --card-bg: #1A1A1A;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            --border-radius: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Reset și stiluri de bază */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--light);
+            background-color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--light);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        .gradient-text {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Butoane */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--light);
+            border: 2px solid var(--light);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .btn-whatsapp {
+            background: var(--primary);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-whatsapp:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-instagram {
+            background: var(--secondary);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-instagram:hover {
+            background: #3745b5;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(18, 18, 18, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--light);
+        }
+
+        .logo-icon {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: var(--primary);
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .floating-element {
+            position: absolute;
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .floating-1 {
+            top: 20px;
+            left: -20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-2 {
+            bottom: 40px;
+            right: -20px;
+            animation: float 3s ease-in-out infinite 1s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--darker);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Services Section */
+        .services {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-image {
+            height: 200px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .service-description {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .service-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Process Section */
+        .process {
+            background-color: var(--darker);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        /* Payment Methods */
+        .payment-methods {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
+            text-align: center;
+        }
+
+        .payment-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .payment-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .payment-icon i {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .cta::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .cta .btn {
+            background: white;
+            color: var(--primary);
+        }
+
+        .cta .btn:hover {
+            background: var(--light);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--darker);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--card-bg);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--shadow);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.3rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 70px 0;
+            }
+            
+            .hero {
+                padding: 140px 0 60px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 12px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-feather-alt logo-icon"></i>
+                    PelikanBay
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#features">De ce noi</a></li>
+                    <li><a href="#services">Servicii</a></li>
+                    <li><a href="#process">Cum funcționează</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Landing Page-uri create cu <span class="gradient-text">AI</span>, perfecționate de expert</h1>
+                    <p>Transformă-ți ideea în realitate cu template-uri moderne și personalizate, create folosind tehnologii AI de ultimă oră și rafinate manual pentru performanță maximă.</p>
+                    <div class="hero-buttons">
+                        <a href="https://wa.me/40712345678?text=Salut!%20Mă%20interesează%20un%20landing%20page%20personalizat." class="btn btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Discută pe WhatsApp
+                        </a>
+                        <a href="#services" class="btn btn-secondary">Vezi Servicii</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://via.placeholder.com/600x400" alt="Dashboard PelikanBay">
+                    <div class="floating-element floating-1">
+                        <i class="fas fa-rocket" style="color: var(--primary);"></i>
+                        <span>+300% Conversii</span>
+                    </div>
+                    <div class="floating-element floating-2">
+                        <i class="fas fa-bolt" style="color: var(--accent);"></i>
+                        <span>Livrare în 48h</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">De ce să alegi <span class="gradient-text">PelikanBay</span>?</h2>
+            <p class="section-subtitle">Combinăm puterea tehnologiei cu expertiza umană pentru a crea soluții web excepționale</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="feature-title">Generare cu AI</h3>
+                    <p>Template-uri create cu tehnologii AI de ultimă generație, optimizate pentru conversii și performanță.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-edit"></i>
+                    </div>
+                    <h3 class="feature-title">Rafinare Manuală</h3>
+                    <p>Fiecare template este perfecționat manual pentru a asigura calitatea și unicitatea.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="feature-title">Livrare Rapidă</h3>
+                    <p>Primești landing page-ul tău în maxim 48 de ore de la confirmarea comenzii.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Design Responsive</h3>
+                    <p>Arată perfect pe orice dispozitiv, de la desktop la smartphone.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Optimizat pentru Conversii</h3>
+                    <p>Elemente de design și copywriting care transformă vizitatorii în clienți.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Revizuiri Gratuite</h3>
+                    <p>2 revizuiri gratuite pentru a te asigura că ești 100% mulțumit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Serviciile <span class="gradient-text">noastre</span></h2>
+            <p class="section-subtitle">Alege pachetul care se potrivește nevoilor tale de business</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <div class="service-badge">Popular</div>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Landing Page Basic</h3>
+                        <p class="service-description">Perfect pentru prezentarea unui produs sau serviciu, cu design modern și optimizat pentru conversii.</p>
+                        <ul class="service-features">
+                            <li>• Design responsiv și modern</li>
+                            <li>• Optimizare SEO de bază</li>
+                            <li>• Formular de contact</li>
+                            <li>• Integrare social media</li>
+                            <li>• 1 pagină principală</li>
+                        </ul>
+                        <div class="service-price">
+                            <span class="price">€19</span>
+                            <a href="https://wa.me/40712345678?text=Salut!%20Mă%20interesează%20pachetul%20Landing%20Page%20Basic." class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Comandă
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <div class="service-badge">Recomandat</div>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Landing Page Pro</h3>
+                        <p class="service-description">Soluție completă pentru afaceri serioase, cu funcționalități avansate și design premium.</p>
+                        <ul class="service-features">
+                            <li>• Toate funcțiile Basic</li>
+                            <li>• Design premium personalizat</li>
+                            <li>• Optimizare SEO avansată</li>
+                            <li>• Integrare analytics</li>
+                            <li>• +2 pagini suplimentare</li>
+                            <li>• Sistem de newsletter</li>
+                        </ul>
+                        <div class="service-price">
+                            <span class="price">€29</span>
+                            <a href="https://wa.me/40712345678?text=Salut!%20Mă%20interesează%20pachetul%20Landing%20Page%20Pro." class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Comandă
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <div class="service-badge">Premium</div>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Business Complete</h3>
+                        <p class="service-description">Soluție all-in-one pentru business-uri care vor să se remarce și să convertească maxim.</p>
+                        <ul class="service-features">
+                            <li>• Toate funcțiile Pro</li>
+                            <li>• Design exclusiv</li>
+                            <li>• Integrări API personalizate</li>
+                            <li>• Sistem de booking/plăți</li>
+                            <li>• Pagini nelimitate</li>
+                            <li>• Suport prioritar</li>
+                            <li>• Revizuiri nelimitate</li>
+                        </ul>
+                        <div class="service-price">
+                            <span class="price">€49</span>
+                            <a href="https://wa.me/40712345678?text=Salut!%20Mă%20interesează%20pachetul%20Business%20Complete." class="btn btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Comandă
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <h2 class="section-title">Cum <span class="gradient-text">funcționează</span>?</h2>
+            <p class="section-subtitle">Un proces simplu și transparent de la comandă la livrare</p>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Consultare</h3>
+                    <p>Ne conectăm pe WhatsApp sau Instagram și discutăm despre nevoile tale și buget</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Plată</h3>
+                    <p>Plătești 50% din valoare în avans prin Revolut, transfer bancar sau poștă</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Creare</h3>
+                    <p>Creăm landing page-ul tău în maxim 48 de ore și îți trimitem preview</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Livrare</h3>
+                    <p>Plătești restul de 50% și primești landing page-ul finalizat</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods -->
+    <section class="payment-methods">
+        <div class="container">
+            <h2 class="section-title">Metode de <span class="gradient-text">plată</span></h2>
+            <p class="section-subtitle">Plătești în mod securizat prin metodele preferate</p>
+            
+            <div class="payment-icons">
+                <div class="payment-icon">
+                    <i class="fas fa-university"></i>
+                    <span>Transfer Bancar</span>
+                </div>
+                <div class="payment-icon">
+                    <i class="fab fa-rev"></i>
+                    <span>Revolut</span>
+                </div>
+                <div class="payment-icon">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <span>Poșta Română</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Gata să-ți transformi prezența online?</h2>
+                <p>Alătură-te zeci de antreprenori care folosesc deja landing page-urile noastre pentru a-și crește afacerea.</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/4061959517?text=Salut!%20Vreau%20să%20comand%20un%20landing%20page." class="btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Comandă acum
+                    </a>
+                    <a href="https://www.instagram.com/closekentt" class="btn btn-secondary" target="_blank">
+                        <i class="fab fa-instagram"></i> Urmărește-ne
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>PelikanBay</h3>
+                    <p>Landing page-uri create cu AI și rafinate manual pentru performanță maximă și conversii ridicate.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/closekentt" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/4061959517" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Link-uri Rapide</h3>
+                    <ul class="footer-links">
+                        <li><a href="#features">De ce noi</a></li>
+                        <li><a href="#services">Servicii</a></li>
+                        <li><a href="#process">Cum funcționează</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><i class="fab fa-whatsapp"></i> +40 61 959 517</li>
+                        <li><i class="fab fa-instagram"></i> closekentt</li>
+                        <li><i class="fas fa-envelope"></i> pelikanbay@techie.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 PelikanBay. Toate drepturile rezervate.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+        
+        // Sticky Header on Scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.3)';
+            } else {
+                header.style.boxShadow = '0 1px 10px rgba(0, 0, 0, 0.2)';
+            }
+        });
+    </script>
+</body>
+</html>
